@@ -27,4 +27,23 @@ productsRouter.post("/", async (req, res) => {
     }
 })
 
+
+productsRouter.delete("/:productId", async (req, res, next) => {
+    try {
+      const deletedProduct = await ProductModel.findByIdAndDelete(
+        req.params.productId
+      );
+      if (deletedProduct) {
+        res.status(204).send("Product deleted!");
+      } else {
+        const error = new Error();
+        error.httpStatusCode = 404;
+        next(error);
+      }
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  });
+
 export default productsRouter

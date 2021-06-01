@@ -66,6 +66,11 @@ describe("Checking application main endpoints", () => {
         expect(response.status).toBe(400)
         expect(response.body._id).not.toBeDefined()
     })
+    
+    it("should check that the /products endpoint is NOT allowing POST requests with invalid data", async () => {
+        const response = await request.delete("/productId").send("Post Deleted..!")
+        expect(response.status).toBe(404)
+    })
 
     it("should test that the /products endpoint is returning valid data after creating", async () => {
         const response = await request.post("/products").send(validData)
@@ -88,6 +93,7 @@ describe("Checking application main endpoints", () => {
         expect(included).toBe(true)
 
     })
+
 
 })
 
