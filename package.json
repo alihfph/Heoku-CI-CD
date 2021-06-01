@@ -1,0 +1,39 @@
+{
+  "name": "jest-lesson-jun1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config ./src",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "watch": "NODE_OPTIONS=--experimental-vm-modules jest --watchAll",
+    "start": "node ./src/index.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-list-endpoints": "^5.0.0",
+    "mongoose": "^5.12.12"
+  },
+  "devDependencies": {
+    "jest": "^27.0.3",
+    "nodemon": "^2.0.7",
+    "dotenv": "^10.0.0",
+    "supertest": "^6.1.3"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alihfph/Heoku-CI-CD.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alihfph/Heoku-CI-CD/issues"
+  },
+  "homepage": "https://github.com/alihfph/Heoku-CI-CD#readme"
+}
