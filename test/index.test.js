@@ -78,7 +78,7 @@ describe("Checking application main endpoints", () => {
 
     })
 
-    it("should test that the /products endpoint is returning all the products available", async () => {
+    it("should test that the /products endpoint is returning all products available", async () => {
         const productResponse = await request.post("/products").send(validData)
 
         const response = await request.get("/products")
