@@ -72,6 +72,11 @@ describe("Checking application main endpoints", () => {
         expect(response.status).toBe(404)
     })
 
+//    it("should check that the /products endpoint is NOT allowing POST requests with invalid data", async () => {
+//       const response = await request.put("/productId").send("Post edited..!")
+ //       expect(response.status).toBe(200)
+ //   }) 
+
     it("should test that the /products endpoint is returning valid data after creating", async () => {
         const response = await request.post("/products").send(validData)
 

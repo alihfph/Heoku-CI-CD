@@ -27,6 +27,26 @@ productsRouter.post("/", async (req, res) => {
     }
 })
 
+productsRouter.put("/:productId", async (req, res, next) => {
+    try {
+      const modifiedProduct = await ProductModel.findByIdAndUpdate(
+        req.params.productId,
+        req.body,
+        { runValidators: true, new: true }
+      );
+      if (modifiedProduct) {
+        res.send(200);
+      } else {
+        const error = new Error();
+        error.httpStatusCode = 404;
+        next(error);
+      }
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  });
+
 
 productsRouter.delete("/:productId", async (req, res, next) => {
     try {
